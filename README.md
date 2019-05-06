@@ -7,6 +7,12 @@ To install just run ```pip install jinja2-vault```
 ## Usage 
 Add the jinja2 `secret` function like this:
 
+```j2
+password={% secret "password", path="database", mount="app1/secret" %}
+```
+
+As simple python code to test is: 
+
 ```python
 from jinja2 import Environment, Template
 env = Environment(
@@ -18,10 +24,21 @@ result = template.render()
 print(result)
 
 ```
-This example load key `password` from `app1/secret/database` where `app1/secret` is the mount and `database` the path.
+Both examples load key `password` from `app1/secret/database` where `app1/secret` is the mount and `database` the path.
 
 ## Setup for cookiecutter
-TBB
+Add the module to the cookiecutter.json.  
+Example: 
+```json 
+{
+    "some_var": "var",
+    "_extensions": [
+        "jinja2-vault.VaultExtension"
+    ]
+}
+```
+
+The further usage the same as desribed in **Usage**.
 
 ## Todo
 [ ] Add some unit tests

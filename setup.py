@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="jinja2-vault",
-    version="0.0.1",
+    version="0.0.2",
     author="Malte Brodersen",
     author_email="malte.brodersen@exoit.de",
     description="Extentsion to load vault screts in jinja templates",
